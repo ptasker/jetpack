@@ -65,8 +65,10 @@ class Jetpack_Untappd {
 			}
 			return;
 		}
-		// We're going to clean the user input.
-		$atts = self::santize_atts( $atts );
+
+		if ( ! wp_script_is( 'zepto', 'done' ) ){
+			return;
+		}
 
 		// Let's apply some defaults.
 		$atts = shortcode_atts( array(
@@ -81,9 +83,8 @@ class Jetpack_Untappd {
 			'fontsize'       => '14',
 		), $atts, 'untappd-menu' );
 
-		if ( ! wp_script_is( 'zepto', 'done' ) ){
-			return;
-		}
+		// We're going to clean the user input.
+		$atts = self::santize_atts( $atts );
 
 		static $untappd_menu = 1;
 
