@@ -7,7 +7,7 @@
  * @since  4.1.0
  * @param location        int    Location ID for the Untappd venue. Required.
  * @param menu            string Menu ID for the venue's menu. Required.
- * @param headerbg        string Header background color, hex value. Opitonal.
+ * @param headerbg        string Header background color, hex value. Optional.
  * @param menubg          string Menu backgroung color, hex value. Optional.
  * @param sectionheaderbg string Section Header background color, hex value. Optional.
  * @param footerfontcolor string Footer font color, hex value. Optional.
