@@ -12,8 +12,8 @@
  * @param sectionheaderbg string Section Header background color, hex value. Optional.
  * @param footerfontcolor string Footer font color, hex value. Optional.
  * @param linkfontcolor   string Link font color, hex value. Optional.
- * @param fontfamily     string Font family name. Optional.
- * @param fontsize       int    Font size in pixels. Optional.
+ * @param fontfamily      string Font family name. Optional.
+ * @param fontsize        int    Font size in pixels. Optional.
  */
 
 class Jetpack_Untappd {
@@ -79,8 +79,8 @@ class Jetpack_Untappd {
 			'sectionheaderbg' => '#282828',
 			'footerfontcolor' => '#4A4A4A',
 			'linkfontcolor'   => '#055CFF',
-			'fontfamily'     => 'Helvetica Neue',
-			'fontsize'       => '14',
+			'fontfamily'      => 'Helvetica Neue',
+			'fontsize'        => '14',
 		), $atts, 'untappd-menu' );
 
 		// We're going to clean the user input.
