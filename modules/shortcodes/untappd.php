@@ -49,7 +49,7 @@ class Jetpack_Untappd {
 			return;
 		}
 
-		wp_enqueue_script( 'zepto', 'https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js', null, '1.1.6' );
+		wp_enqueue_script( 'zepto', plugins_url( '/js/untappd.js', __FILE__ ), null, '1.1.6' );
 
 	}
 
