@@ -12,8 +12,8 @@
  * @param sectionheaderbg string Section Header background color, hex value. Optional.
  * @param footerfontcolor string Footer font color, hex value. Optional.
  * @param linkfontcolor   string Link font color, hex value. Optional.
- * @param font_family     string Font family name. Optional.
- * @param font_size       int    Font size in pixels. Optional.
+ * @param fontfamily     string Font family name. Optional.
+ * @param fontsize       int    Font size in pixels. Optional.
  */
 
 class Jetpack_Untappd {
@@ -77,8 +77,8 @@ class Jetpack_Untappd {
 			'sectionheaderbg' => '#282828',
 			'footerfontcolor' => '#4A4A4A',
 			'linkfontcolor'   => '#055CFF',
-			'font_family'     => 'Helvetica Neue',
-			'font_size'       => '14',
+			'fontfamily'     => 'Helvetica Neue',
+			'fontsize'       => '14',
 		), $atts, 'untappd-menu' );
 
 		if ( ! wp_script_is( 'zepto', 'done' ) ){
@@ -95,8 +95,8 @@ class Jetpack_Untappd {
 		$html .= '"SectionHeaderBackgroundColor": "'. $atts['sectionheaderbg'] .'",' . PHP_EOL;
 		$html .= '"FooterFontColor": "'. $atts['footerfontcolor'] .'",' . PHP_EOL;
 		$html .= '"LinkFontColor": "'. $atts['linkfontcolor'] .'",' . PHP_EOL;
-		$html .= '"FontFamily": "'. $atts['font_family'] .'",' . PHP_EOL;
-		$html .= '"BaseFontSize": "'. $atts['font_size'] .'px"' . PHP_EOL;
+		$html .= '"FontFamily": "'. $atts['fontfamily'] .'",' . PHP_EOL;
+		$html .= '"BaseFontSize": "'. $atts['fontsize'] .'px"' . PHP_EOL;
 		$html .= '}' . PHP_EOL;
 
 		$html .= 'new MenuView(' . $atts['location'] . ', "menus-container-untappd-' . $untappd_menu . '", options);</script>';
@@ -115,7 +115,7 @@ class Jetpack_Untappd {
 		if ( ! is_array( $atts ) ){
 			return;
 		}
-		$intkeys    = array( 'location', 'font_size' );
+		$intkeys    = array( 'location', 'fontsize' );
 		$hexkeys    = array( 'headerbg', 'menubg', 'sectionheaderbg', 'footerfontcolor', 'linkfontcolor' );
 
 		foreach ( $atts as $k => $v ){
@@ -123,7 +123,7 @@ class Jetpack_Untappd {
 				$atts[ $k ] = esc_attr( $v );
 				break;
 			}
-			if ( 'font_family' == $k ){
+			if ( 'fontfamily' == $k ){
 				$atts['k'] = esc_js( $v );
 				break;
 			}
