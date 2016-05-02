@@ -18,39 +18,12 @@
 
 class Jetpack_Untappd {
 
-	private $scripts_included = false;
-
 	function __construct() {
 		add_action( 'init', array( $this, 'action_init' ) );
 	}
 
 	function action_init() {
-		add_action( 'wp_head', array( $this, 'add_scripts' ), 1 );
 		add_shortcode( 'untappd-menu', array( $this, 'menu_shortcode' ) );
-	}
-
-	/**
-	 * Enqueue scripts and styles
-	 */
-	function add_scripts() {
-		global $posts;
-		if ( empty( $posts ) || ! is_array( $posts ) ) {
-			return;
-		}
-
-		foreach ( $posts as $p ) {
-			if ( has_shortcode( $p->post_content, 'untappd-menu' ) ) {
-				$this->scripts_included = true;
-				break;
-			}
-		}
-
-		if ( ! $this->scripts_included ) {
-			return;
-		}
-
-		wp_enqueue_script( 'zepto', plugins_url( '/js/untappd.js', __FILE__ ), null, '1.1.6' );
-
 	}
 
 	/**
@@ -66,7 +39,7 @@ class Jetpack_Untappd {
 			return;
 		}
 
-		if ( ! wp_script_is( 'zepto', 'done' ) ){
+		if ( ! wp_script_is( 'jquery', 'done' ) ){
 			return;
 		}
 
@@ -89,6 +62,7 @@ class Jetpack_Untappd {
 		static $untappd_menu = 1;
 
 		$html  = '<div id="menus-container-untappd-' . $untappd_menu . '"></div>';
+		$html .= '<script type="text/javascript">var Zepto = jQuery.noConflict();</script>';
 		$html .= '<script type="text/javascript" src="https://business.untappd.com/locations/' . $atts['location'] . '/add_menu_to_website/js?menu_ids[]=' . $atts['menu'] . '"></script>' . PHP_EOL;
 		$html .= '<script type="text/javascript">var options = {' . PHP_EOL;
 		$html .= '"HeaderBackgroundColor": "'. $atts['headerbg'] .'",' . PHP_EOL;
